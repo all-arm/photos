@@ -1,3 +1,8 @@
+@import url('https://fonts.cdnfonts.com/css/ica-rubik-black');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+body {
+    background-color: #25283B;
+}
 .banner {
     width: 100%;
     height: 100vh;
@@ -7,19 +12,20 @@
 }
 .banner .slider {
     position: absolute;
-    width: 500px;
-    height: 500px;
-    top: 20%;
-    left: calc(50% - 100px);
+    width: 450px;
+    height: 350px;
+    top: 35%;
+    left: calc(40% - 90px);
     transform-style: preserve-3d;
     transform: perspective(1000px);
     animation: autoRun 80s linear infinite;
+    /* z-index: 2; */
 }
 @keyframes autoRun {
     from {
-        transform: perspective(1000px) rotateX(5deg) rotateY(0deg);
+        transform: perspective(1000px) rotateY(0deg);
     } to {
-        transform: perspective(1000px) rotateX(-5deg) rotateY(360deg);
+        transform: perspective(1000px) rotateY(360deg);
     }
 }
 .banner .slider .item {
@@ -33,4 +39,56 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+.banner .content {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1400px, 100vw);
+    height: max-content;
+    padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    /* z-index: 1; */
+}
+.banner .content h1 {
+    font-family: 'ICA Rubik';
+    font-size: 16em;
+    line-height: 1em;
+    color: #25283B;
+    position: relative;
+    -webkit-text-stroke: 2px grey;
+    color: transparent;
+}
+.banner .content h1::after {
+    position: absolute;
+    inset: 0 0 0 0;
+    content: attr(data-content);
+    z-index: 2;
+    -webkit-text-stroke: 2px grey;
+}
+.banner .content .author {
+    font-family: Poppins;
+    text-align: right;
+    max-width: 200px;
+}
+.banner .content h2 {
+    font-size: 4em;
+    -webkit-text-stroke: 2px gray;
+    color: transparent;
+}
+.banner .content .model {
+    background-image: url('#');
+    width: 100%;
+    height: 75vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-size: auto 130%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    z-index: 1;
 }
